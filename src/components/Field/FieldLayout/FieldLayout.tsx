@@ -22,13 +22,11 @@ export const FieldLayout: React.FC<IFieldProps> = ({
 			? setIsGameEnded(true)
 			: setCurrentPlayer(currentPlayer === 'X' ? '0' : 'X');
 
-		if (!field.includes('')) {
-			if (isWin(field, currentPlayer)) {
-				setIsGameEnded(true);
-			} else {
-				setIsGameEnded(true);
-				setIsDraw(true);
-			}
+		!field.includes('') && isWin(field, currentPlayer) ? setIsGameEnded(true) : null;
+
+		if (!field.includes('') && !isWin(field, currentPlayer)) {
+			setIsGameEnded(true);
+			setIsDraw(true);
 		}
 	};
 	return (
