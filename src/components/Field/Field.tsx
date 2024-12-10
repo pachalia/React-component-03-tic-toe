@@ -7,12 +7,18 @@ export const Field: React.FC<IFieldProps> = ({
 	currentPlayer,
 	isGameEnded,
 }) => {
+	const clickHandler = (i: number) => {
+		if (field[i] === '') {
+			const array = field;
+			array[i] = currentPlayer;
+			setField(() => [...array]);
+		}
+	};
 	return (
 		<FieldLayout
 			field={field}
-			setField={setField}
-			currentPlayer={currentPlayer}
 			isGameEnded={isGameEnded}
+			clickHandler={clickHandler}
 		/>
 	);
 };

@@ -1,19 +1,11 @@
-import { IFieldProps } from '../../../interfaces/props.interface.ts';
+import { IFieldLayoutProps } from '../../../interfaces/props.interface.ts';
 import styles from './field.layout.module.css';
 
-export const FieldLayout: React.FC<IFieldProps> = ({
+export const FieldLayout: React.FC<IFieldLayoutProps> = ({
 	field,
-	setField,
-	currentPlayer,
 	isGameEnded,
+	clickHandler,
 }) => {
-	const clickHandler = (i: number) => {
-		if (field[i] === '') {
-			const array = field;
-			array[i] = currentPlayer;
-			setField(() => [...array]);
-		}
-	};
 	return (
 		<>
 			<div className={styles.container}>
